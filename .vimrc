@@ -15,7 +15,10 @@ Plugin 'VundleVim/Vundle.vim'
 " 来自github
 
 "主题
-Plugin 'flazz/vim-colorschemes' 
+Plugin 'flazz/vim-colorschemes'
+
+" check
+Plugin 'scrooloose/syntastic'
 
 "底部状态栏
 Plugin 'Lokaltog/vim-powerline'
@@ -60,7 +63,18 @@ map <F5> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden = 1 "NERDTREE显示隐藏文件 
 
+" 快捷注释
 map <leader>cc :TComment<CR>
+
+" checker设定
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " ==============================================================================
 " vim原生设置
 set nu
