@@ -14,6 +14,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " 来自github
 
+"高亮
+Plugin 'digitaltoad/vim-pug'
+
 "主题
 Plugin 'flazz/vim-colorschemes'
 
