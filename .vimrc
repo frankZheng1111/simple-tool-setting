@@ -38,6 +38,9 @@ Plugin 'tomtom/tcomment_vim'
 "自动补全
 Plugin 'Shougo/neocomplcache.vim'
 
+"search tool
+Plugin 'mileszs/ack.vim'
+
 " 来自vim
 
 " non github repos
@@ -60,6 +63,11 @@ filetype plugin indent on    " required
 " 组件设置
 " flazz/vim-colorschemes,主题设置
 colorscheme  evening
+
+" ack.vim 设置
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "NERDTree 插件配置
 map <F5> :NERDTreeToggle<CR>
@@ -114,3 +122,4 @@ endif
 "neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
 let g:neocomplcache_force_overwrite_completefunc = 1
+
