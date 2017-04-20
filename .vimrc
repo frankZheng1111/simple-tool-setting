@@ -41,6 +41,8 @@ Plugin 'Shougo/neocomplcache.vim'
 "search tool
 Plugin 'mileszs/ack.vim'
 
+" Plugin 'Shutnik/jshint2.vim'
+
 " 来自vim
 
 " non github repos
@@ -111,6 +113,7 @@ set expandtab                 "Use space instead of tabs
 
 let mapleader = "g"  " 设置leader键
 
+
 "noremap ok o<esc> "插入新行
 
 " Change cursor shape between insert and normal mode in iTerm2.app
@@ -118,6 +121,8 @@ if $TERM_PROGRAM =~ "iTerm.app"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 "neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
