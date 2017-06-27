@@ -41,6 +41,9 @@ Plugin 'Shougo/neocomplcache.vim'
 "search tool
 Plugin 'mileszs/ack.vim'
 
+"vue高亮
+Plugin 'posva/vim-vue'
+
 " Plugin 'Shutnik/jshint2.vim'
 
 " 来自vim
