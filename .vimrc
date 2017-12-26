@@ -44,6 +44,9 @@ Plugin 'mileszs/ack.vim'
 "vue高亮
 Plugin 'posva/vim-vue'
 
+"vue高亮
+Plugin 'hdima/python-syntax'
+
 " Plugin 'Shutnik/jshint2.vim'
 
 " 来自vim
@@ -126,6 +129,7 @@ if $TERM_PROGRAM =~ "iTerm.app"
 endif
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_checkers = ['pylint']
 
 "neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
