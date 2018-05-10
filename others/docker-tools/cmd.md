@@ -3,3 +3,9 @@
 ```
 docker stop $(docker ps -q) & docker rm $(docker ps -aq)
 ```
+
+#### 进入容器
+
+```
+docker exec -it CONTAINER_ID SHELL(sh, bash。。。)
+```
