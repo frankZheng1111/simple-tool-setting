@@ -44,6 +44,9 @@ Plugin 'mileszs/ack.vim'
 "vue高亮
 Plugin 'posva/vim-vue'
 
+"go高亮和语法检查
+Plugin 'fatih/vim-go'
+
 "vue高亮
 Plugin 'hdima/python-syntax'
 
@@ -116,6 +119,7 @@ set nobackup
 set bufhidden=hide "当buffer被丢弃的时候隐藏它
 set guicursor=n-v-c:hor10 "normal下贯标显示为下划线
 set expandtab                 "Use space instead of tabs
+set backspace=indent,eol,start
 
 let mapleader = "g"  " 设置leader键
 
@@ -130,6 +134,7 @@ endif
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_go_checkers = ['go']
 
 "neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开

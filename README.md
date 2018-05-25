@@ -12,9 +12,19 @@
 
     `:PluginInstall`
 
+  - 安装go插件
+
+    打开vim运行(需要科学上网):
+
+    `:GoInstallBinaries`
+
   - PS: git 提交报错弹出问题修复
 
     `$ git config --global core.editor /usr/bin/vim`
+
+    或者
+
+    `$ git config --global core.editor /usr/local/Cellar/vim/8.1.0001/bin/vim`
  
 2. [autojump](https://github.com/wting/autojump)
 
