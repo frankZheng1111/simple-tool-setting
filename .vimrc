@@ -14,6 +14,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " 来自github
 
+Plugin 'w0rp/ale'
+
 "高亮
 Plugin 'digitaltoad/vim-pug'
 
@@ -82,8 +84,12 @@ endif
 
 "NERDTree 插件配置
 map <F5> :NERDTreeToggle<CR>
+nmap <C-\> :GoDef<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden = 1 "NERDTREE显示隐藏文件 
+
+"GO下拉打开类方法"
+imap <C-b> <C-x><C-o>
 
 " 快捷注释
 map <leader>cc :TComment<CR>
@@ -109,6 +115,7 @@ set ts=2
 
 set list "设置空格显示为+号
 set listchars=trail:+
+set listchars=tab:--
 
 set foldmethod=syntax "代码折叠
 set foldlevelstart=99 "默认不折叠
@@ -134,9 +141,16 @@ endif
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_go_checkers = ['go']
+" let g:syntastic_go_checkers = ['go']
+
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 0
+let g:ale_open_list = 1
+
 
 "neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
 let g:neocomplcache_force_overwrite_completefunc = 1
 
+autocmd BufWritePost *.go execute "GoInstall!"
