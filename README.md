@@ -31,3 +31,4 @@
 3. [zsh](https://aaaaaashu.gitbooks.io/mac-dev-setup/content/iTerm/zsh.html) Theme: 'robbyrussell'
 4. [配色主题](https://github.com/mbadolato/iTerm2-Color-Schemes): 当前用： darkblackground, 
 5. [字库powerline](http://www.jianshu.com/p/68ef9d2e1653): font-size: 16, droid sans mono dotted for powerline mesio lg l dz for powerline
+6. [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
