@@ -141,7 +141,7 @@ endif
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['pylint']
-" let g:syntastic_go_checkers = ['go']
+let g:syntastic_go_checkers = ['go']
 
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_enter = 0
@@ -154,3 +154,11 @@ let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
 let g:neocomplcache_force_overwrite_completefunc = 1
 
 autocmd BufWritePost *.go execute "GoInstall!"
+
+" 全小写是忽略大小写, 有大小写严格匹配大小写
+set ignorecase smartcase
+
+" 打开文件停留上次位置
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") |
+                        \ execute "normal! g`\"" |
+                        \ endif
