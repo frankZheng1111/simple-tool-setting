@@ -14,13 +14,23 @@ Plugin 'VundleVim/Vundle.vim'
 
 " 来自github
 
-Plugin 'w0rp/ale'
-
 Plugin 'majutsushi/tagbar'
+
+" Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "高亮
 Plugin 'digitaltoad/vim-pug'
 
+Plugin 'vim-autoformat/vim-autoformat'
+
+"代码格式化
+" Add maktaba and codefmt to the runtimepath.
+" (The latter must be installed before it can be used.)
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plugin 'google/vim-glaive'
 "ts 高亮
 Plugin 'leafgarland/typescript-vim'
 
@@ -39,7 +49,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 
 "快速注释
-" Plugin 'scrooloose/nerdcommenter'
 Plugin 'tomtom/tcomment_vim'
 
 "自动补全
@@ -67,6 +76,12 @@ Plugin 'hdima/python-syntax'
 " non github repos
 
 call vundle#end()            " required
+
+call glaive#Install()
+" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
+" Glaive codefmt plugin[mappings]
+" Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
+
 
 " ==============================================================================
 filetype plugin indent on    " required
@@ -102,10 +117,10 @@ imap <C-b> <C-x><C-o>
 map <leader>cc :TComment<CR>
 
 " checker设定
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 3
 let g:syntastic_check_on_open = 1
@@ -114,7 +129,7 @@ let g:syntastic_check_on_wq = 0
 " vim原生设置
 set nu
 set rnu "显示相对行号
-syntax on " 打开语法检测
+" syntax on " 打开语法检测
 
 set tabstop=2 "设置tab键长度
 set sw=2
@@ -149,18 +164,18 @@ let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_go_checkers = ['go']
 
 " 会覆盖语法检查
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 0
-let g:ale_open_list = 1
-let g:go_fmt_command = "goimports"
+" let g:ale_lint_on_save = 0
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_text_changed = 0
+" let g:ale_open_list = 1
+" let g:go_fmt_command = "goimports"
 
 
 "neocomplcache.vim
 let g:neocomplcache_enable_at_startup = 1 "打开vim时自动打开
 let g:neocomplcache_force_overwrite_completefunc = 1
 
-" autocmd BufWritePost *.go execute "GoInstall!"
+" autocmd BufWritePost *.go execute \"GoInstall!"
 
 " 全小写是忽略大小写, 有大小写严格匹配大小写
 set ignorecase smartcase
@@ -216,3 +231,7 @@ map <leader>ee :TagbarToggle<CR>
 
 "NERDTree 插件配置
 map <leader>tt :NERDTreeToggle<CR>
+
+" augroup autoformat_settings
+"   autocmd FileType proto AutoFormatBuffer clang-format
+" augroup END
